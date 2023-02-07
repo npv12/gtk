@@ -1,3 +1,6 @@
 [submodule "colloid"]
 	path = colloid
 	url = https://github.com/vinceliuice/Colloid-gtk-theme.git
+[submodule "orchis"]
+	path = orchis
+	url = git@github.com:vinceliuice/Orchis-theme.git

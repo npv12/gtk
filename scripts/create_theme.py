@@ -29,10 +29,9 @@ def create_theme(types: List[str], accents: List[str], dest: str, link: bool = F
             install_cmd: str = f"./install.sh -c {theme_style} -s {size} -n {name} -d {dest} -t {def_color_map[accent]}"
             if tweaks:
                 install_cmd += f" --tweaks {' '.join([tweak for tweak in tweaks])}"
-            shutil.rmtree(f"{repo_dir}/chrome", ignore_errors=True)
-            shutil.copytree(f"{src_dir}/other/firefox/chrome", f"{repo_dir}/chrome")
             os.chdir(work_dir)
-            subprocess.call("./build.sh", shell=True) # Rebuild all scss
+            print(install_cmd)
+            subprocess.call("./parse-sass.sh", shell=True) # Rebuild all scss
             subprocess.call(install_cmd, shell=True) # Install the theme globally for you
             subprocess.call("git reset --hard HEAD", shell=True)  # reset colloid repo to original state
 

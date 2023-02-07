@@ -2,12 +2,12 @@ import os
 
 
 repo_dir = os.getcwd()
-work_dir = f"{repo_dir}/colloid"
+work_dir = f"{repo_dir}/orchis"
 src_dir = f"{work_dir}/src"
 tmp_dir = f"{repo_dir}/releases"
-theme_name = "Catppuccin"
+theme_name = "Catppuccin-Orchis"
 
-# Map catppuccin colors to colloid ones
+# Map catppuccin colors to orchis ones
 # These are mostly unused except for resources for lower gtk versions. 
 # These assets are in png format and I am not really interested right now to recolor them using opencv
 # Maybe someone more motivated can follow through
@@ -28,7 +28,7 @@ def_color_map = {
     'lavender': 'default'}
 
 def_accent_light = {
-    'default': '3c84f7',
+    'default': '1A73E8',
     'purple': 'AB47BC',
     'pink':  'EC407A',
     'red': 'E53935',
@@ -39,7 +39,7 @@ def_accent_light = {
 }
 
 def_accent_dark = {
-    'default': '5b9bf8',
+    'default': '3281EA',
     'purple': 'BA68C8',
     'pink':  'F06292',
     'red': 'F44336',

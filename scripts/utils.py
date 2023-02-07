@@ -33,7 +33,7 @@ def replaceAllText(start_dir: str, search_text: str, replace_text: str) -> None:
     for path, _, files in os.walk(os.path.abspath(start_dir)):
         for filename in files:
             filepath = os.path.join(path, filename)
-            if filepath.endswith(".png"):
+            if filepath.endswith(".png") or filepath.endswith(".jpg") or filepath.endswith(".gvdesign"):
                 continue
             replacetext(filepath, search_text, replace_text)
 
