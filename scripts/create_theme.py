@@ -46,15 +46,9 @@ def create_theme(types: List[str], accents: List[str], dest: str, link: bool = F
                 if size == 'compact':
                     filename += '-Compact'
                 try:
-                    shutil.rmtree(new_filename + '-hdpi')
-                    shutil.rmtree(new_filename + '-xhdpi')
                     shutil.rmtree(new_filename)
                 except:
                     pass
-                os.rename(dest + "/" + filename + '-hdpi',
-                        new_filename + '-hdpi')
-                os.rename(dest + "/" + filename + '-xhdpi',
-                        new_filename + '-xhdpi')
                 os.rename(dest + "/" + filename, new_filename)
                 print("Successfully renamed file")
             except Exception as e:
@@ -82,5 +76,5 @@ def create_theme(types: List[str], accents: List[str], dest: str, link: bool = F
                     print("Failed to link due to :", e)
 
             if zip:
-                foldernames = [new_filename, new_filename + '-xhdpi', new_filename + '-hdpi']
+                foldernames = [new_filename]
                 zip_multiple_folders(foldernames, new_filename + ".zip", not link)
