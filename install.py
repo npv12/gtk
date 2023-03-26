@@ -59,8 +59,15 @@ parser.add_argument("--tweaks",
                     default=[],
                     nargs="+",
                     dest="tweaks",
-                    choices=["black", "rimless", "normal", "macos", "compact"],
-                    help="Some specifc tweaks. like black, rimless, normal buttons")
+                    choices=["solid", "compact", "black", "primary", "macos", "submenu"],
+                    help="Some specifc tweaks. like solid, compact, black, primary, macos, submenu")
+
+parser.add_argument("--round",
+                    metavar="Colloid specific tweaks",
+                    type=int,
+                    default=3,
+                    dest="round",
+                    help="Change theme round corner border-radius [Input the px value you want] (Suggested: 2px < value < 16px)")
 
 parser.add_argument("-l", "--link",
                     help="Link advaita themes to our catppuccin theme",
@@ -104,6 +111,10 @@ else:
 
 if not os.listdir(work_dir):
     subprocess.call("git submodule update --init --recursive", shell=True)
+
+if args.round < 2 or args.round > 16:
+    print("Round corner border-radius must be between 2px and 16px")
+    exit(1)
 
 filename = create_theme(flavors, accents, dest,
                         args.link, args.name, args.size, args.tweaks, args.zip, args.rec_asset)

@@ -7,12 +7,11 @@ from scripts.ctp_colors import ctp_colors
 from scripts.patches import recreate_xfwm4_assets
 from scripts.recolor import recolor
 from scripts.utils import zip_multiple_folders
-from scripts.var import def_color_map, repo_dir, src_dir, theme_name, work_dir
+from scripts.var import def_color_map, theme_name, work_dir
 
 
 def create_theme(types: List[str], accents: List[str], dest: str, link: bool = False, 
     name: str = theme_name, size: str = "standard", tweaks=[], zip = False, recreate_assets = False) -> None:
-
     try:
         os.makedirs(dest)  # Create our destination directory
     except FileExistsError:
